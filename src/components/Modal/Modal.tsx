@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ModalButtonConfig {
+interface ButtonConfig {
   type: string;
   label: string;
   onClick: () => void;
@@ -9,7 +9,7 @@ interface ModalButtonConfig {
 interface ModalProps extends React.PropsWithChildren {
   show: boolean;
   onClose: () => void;
-  buttons?: ModalButtonConfig[];
+  buttons?: ButtonConfig[];
 }
 
 const Modal: React.FC<ModalProps> = ({ show, onClose, buttons, children }) => {
@@ -20,9 +20,7 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, buttons, children }) => {
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <button type="button" className="close" aria-label="Close" onClick={onClose}>
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <button type="button" className="btn-close" aria-label="Close" onClick={onClose}></button>
           </div>
           <div className="modal-body">
             {children}
